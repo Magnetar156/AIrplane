@@ -1,0 +1,56 @@
+input#details {
+    display: none;
+}
+
+label#details {
+    float: left;
+    position: relative;
+    cursor: pointer;
+    width: 100px;
+    height: 35px;
+    text-align: center;
+}
+label#details > div {
+    border: 1px;
+    border-radius: 10px 10px 0 0;
+    width: 100%;
+    height: 100%;
+    padding-top: 20px;
+    transition: all .2s;
+}
+
+input#details:checked + div{
+    background: #0e3ba3da;
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px -5px 15px;
+}
+
+div#details_text {
+    margin-top: 55px;
+    padding: 20px;
+    padding-top: 5px;
+    width: 100%;
+    height: 93%;
+    line-height: 170%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+div#machine_learning {
+    margin: 10px;
+    padding-top: 10px;
+    display: block;
+}
+div#natural_lang_process {
+    margin: 10px;
+    padding-top: 10px;
+    display: none;
+}
+div#computer_vision {
+    margin: 10px;
+    padding-top: 10px;
+    display: none;
+}
+
+ul#detail_list {
+    padding-left: 20px;
+}

@@ -1,0 +1,128 @@
+/* checkbox 숨김처리 */
+input#menuicon {
+    display: none;
+}
+/* 메뉴 아이콘 기본 설정 */
+input#menuicon + label {
+    display: block;
+    margin: 15px;
+    width: 40px;
+    height: 30px;
+    position: relative;
+    cursor: pointer;
+}
+input#menuicon + label p {
+    position: absolute;
+    margin-top: 7px;
+    margin-left: 50px;
+}
+input#menuicon + label span {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: black;
+    transition: all .35s;
+}
+input#menuicon + label span:nth-child(1) {
+    top: 0;
+}
+input#menuicon + label span:nth-child(2) {
+    top: 50%;
+    transform:translateY(-50%);
+}
+input#menuicon + label span:nth-child(3) {
+    bottom: 0;
+}
+
+label#content_area {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .4);
+    transition: all .35s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1;
+}
+
+/* 메뉴 아이콘 클릭 시 동작 설정 */
+input#menuicon:checked + label {
+    z-index: 5;
+}
+input#menuicon:checked + label p {
+    display: none;
+}
+input#menuicon:checked + label span:nth-child(1) {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+    background: white;
+}
+input#menuicon:checked + label span:nth-child(2) {
+    opacity: 0;
+}
+input#menuicon:checked + label span:nth-child(3) {
+    bottom: 50%;
+    transform: translateY(50%) rotate(-45deg);
+    background: white;
+}
+
+input#menuicon:checked ~ label#content_area {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* 사이드바 설정 */
+div.sidebar {
+    display: block;
+    width: 300px;
+    height: 100%;
+    background: #1b4dc2;
+    opacity: 0.8;
+    position: fixed;
+    top: 0;
+    left: -300px;
+    z-index: 4;
+    transition: all .35s;
+}
+
+/* 메뉴 아이콘 클릭 시 사이드바 출력 설정 */
+input#menuicon:checked + label + div {
+    left: 0;
+}
+
+/* 메뉴 박스 설정 */
+div#menu_box {
+    display: block;
+    position: relative;
+    top: 30%;
+    text-align: center;
+    color: white;
+    font-size: 23px;
+    cursor: pointer;
+    
+}
+div#menu_box:hover {
+    background: #0b2c79;
+}
+div#menu_box a div {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/* 현재 열려 있는 페이지 메뉴 설정 */
+div#menu_box_selected {
+    display: block;
+    position: relative;
+    top: 30%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    color: white;
+    font-size: 23px;
+    cursor: pointer;
+    background: #031b52;
+    /*background: #3368e4;*/
+}

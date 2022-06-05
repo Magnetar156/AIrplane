@@ -1,0 +1,63 @@
+input[name="univ_list"] {
+    display: none;
+}
+input[name="univ_list"] + label{
+    display: block;
+    padding: 20px;
+    margin-top: -1px;
+    border: 1px solid rgb(177, 177, 177);
+    color: #000000;
+    font-weight: 700;
+    font-size: 18px;
+    background: white;
+    cursor: pointer;
+}
+input[name="univ_list"] + label + div {
+    max-height: 0;
+    transition: all .5s;
+    overflow: hidden;
+    background: white;
+    font-size: 11px;
+    border: 1px solid rgb(177, 177, 177);
+    border-top: 0;
+    border-bottom: 0;
+    font-size: 13px;
+}
+
+input[name="univ_list"]:checked + label {
+    color: white;
+    background: #1b4dc2;
+    border-bottom: 0;
+}
+input[name="univ_list"]:checked + label + div {
+    max-height: 500px;
+    border-bottom: 1px solid rgb(177, 177, 177);
+}
+input[name="univ_list"] + label + div table {
+    width: 100%;
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+input[name="univ_list"] + label + div button {
+    width: 150px;
+    height: 30px;
+    background-color: #3368e4;
+    color: white;
+    font-family: 'JejuGothic';
+    cursor: pointer;
+}
+input[name="univ_list"] + label + div button a {
+    color: white;
+    width: 150px;
+}
+input[name="univ_list"] + label + div img {
+    max-width: 100px;
+}
+
+div#caution {
+    font-size: 12px;
+}
+input[name="univ_list"] + label + div button:hover a {
+    color: black;
+}

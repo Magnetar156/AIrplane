@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>AIrplane - AI 대학원 간단 탐색기</title>
+        <link rel="stylesheet" href="/css/style.css">
+        <script src="/js/canvas.js"></script>
+        <script src="/js/link.js"></script>
+    </head>
+    <body onload="init()">
+        <!--좌측 메뉴바(menu.css 참고)-->
+        <input type="checkbox" id="menuicon">
+        <label for="menuicon">
+            <span></span>
+            <span></span>
+            <span></span>
+            <p>MENU</p>
+        </label>
+        <div class="sidebar">
+            <div id="menu_box">
+                <a href="main.html">
+                    <div>
+                        HOME
+                    </div>
+                </a>
+            </div>
+            <div id="menu_box">
+                <a href="details.html">
+                    <div>
+                        AI 세부 분야
+                    </div>
+                </a>
+            </div>
+            <div id="menu_box_selected">
+                AI 대학원
+            </div>
+        </div>
+        <label for="menuicon" id="content_area"></label>
+
+        <!--페이지 구역 나누기(style.css)-->
+        <header id="sub">
+            <div>
+                <h1>AI 대학원</h1>
+                <p>정부 지정 AI 대학원 한눈에 보기</p>
+            </div>
+        </header>
+        <nav></nav>
+        <!--메인 컨텐츠(univ_list.css)-->
+        <section>
+            <div class="accordian">
+                <input type="radio" name="univ_list" id="korea" checked>
+                <label for="korea">고려대학교</label>
+                <div>
+                    <table>
+                        <tr>
+                            <td rowspan="3"><img src="/univ_logo/korea.png"></td>
+                            <td>학기당 수업료</td>
+                            <td>6,897,000원</td>
+                        </tr>
+                        <tr>
+                            <td>장학금</td>
+                            <td>석사 : 월 150만원 이상 / 박사 : 월 200만원 이상</td>
+                        </tr>
+                        <tr>
+                            <td>제출 가능 공인 영어 성적</td>
+                            <td>TOEIC, TOEFL, TEPS, IELTS</td>
+                        </tr>
+                        <tr>
+                            <td>소재지 | 서울</td>
+                            <td>연구실(교수진) 목록</td>
+                            <td><button onmouseover="this.style.backgroundColor='white'
+                                                    this.style.color='black'"
+                                        onmouseout="this.style.backgroundColor='#3368e4'
+                                                    this.style.color='white'"
+                                        onclick="link_lab('korea')">바로가기</button></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <button onmouseover="this.style.backgroundColor='white'
+                                                    this.style.color='black'"
+                                        onmouseout="this.style.backgroundColor='#3368e4'
+                                                    this.style.color='white'"
+                                        onclick="link_admission('korea')">입학처 가기</button>
+                                <button onmouseover="this.style.backgroundColor='white'
+                                                    this.style.color='black'"
+                                        onmouseout="this.style.backgroundColor='#3368e4'
+                                                    this.style.color='white'">
+                                        <a href="/download/korea.pdf" download="고려대학교 대학원 모집요강">모집요강 다운로드</a></button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <input type="radio" name="univ_list" id="seoul">
+                <label for="seoul">서울대학교</label>
+                <div>
+                    <table>
+                        <tr>
+                            <td rowspan="3"><img src="/univ_logo/seoul.png"></td>
+                            <td>학기당 수업료</td>
+                            <td>4,348,000원</td>
+                        </tr>
+                        <tr>
+                            <td>장학금</td>
+                            <td>석사 : 평균 180만원 / 박사 : 평균 250만원</td>
+                        </tr>
+                        <tr>
+                            <td>제출 가능 공인 영어 성적</td>
+                            <td>TEPS, TOEFL</td>
+                        </tr>
+                        <tr>
+                            <td>소재지 | 서울</td>
+                            <td>연구실(교수진) 목록</td>
+                            <td><button onmouseover="this.style.backgroundColor='white'
+                                                    this.style.color='black'"
+                                                    onmouseout="this.style.backgroundColor='#3368e4'
+                                                    this.style.color='white'"
+                                                    onclick="link_lab('seoul')">바로가기</button></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <button onmouseover="this.style.backgroundColor='white'
+                                                    this.style.color='black'"
+                                        onmouseout="this.style.backgroundColor='#3368e4'
+                                                    this.style.color='white'"
+                                        onclick="link_admission('seoul')">입학처 가기</button>
+                                <button onmouseover="this.style.backgroundColor='white'
+                                                    this.style.color='black'"
+                                        onmouseout="this.style.backgroundColor='#3368e4'
+                                                    this.style.color='white'">
+                                        <a href="/download/seoul.pdf" download="서울대학교 대학원 모집요강">모집요강 다운로드</a></button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <input type="radio" name="univ_list" id="sungkyunkwan">
+                <label for="sungkyunkwan">성균관대학교</label>
+                <div>
+                    <table>
+                        <tr>
+                            <td rowspan="3"><img src="/univ_logo/sungkyunkwan.jpg"></td>
+                            <td>학기당 수업료</td>
+                            <td>7,067,000원</td>
+                        </tr>
+                        <tr>
+                            <td>장학금</td>
+                            <td>석사 : 월 180만원 이상 / 박사 : 월 250만원 이상</td>
+                        </tr>
+                        <tr>
+                            <td>제출 가능 공인 영어 성적</td>
+                            <td>X</td>
+                        </tr>
+                        <tr>
+                            <td>소재지 | 수원</td>
+                            <td>연구실(교수진) 목록</td>
+                            <td><button onmouseover="this.style.backgroundColor='white'
+                                                    this.style.color='black'"
+                                        onmouseout="this.style.backgroundColor='#3368e4'
+                                                    this.style.color='white'"
+                                        onclick="link_lab('sungkyunkwan')">바로가기</button></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <button onmouseover="this.style.backgroundColor='white'
+                                                    this.style.color='black'"
+                                        onmouseout="this.style.backgroundColor='#3368e4'
+                                                    this.style.color='white'"
+                                        onclick="link_admission('sungkyunkwan')">입학처 가기</button>
+                                <button onmouseover="this.style.backgroundColor='white'
+                                                    this.style.color='black'"
+                                        onmouseout="this.style.backgroundColor='#3368e4'
+                                                    this.style.color='white'">
+                                        <a href="/download/sungkyunkwan.pdf" download="성균관대학교 대학원 모집요강">모집요강 다운로드</a></button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <input type="radio" name="univ_list" id="yonsei">
+                <label for="yonsei">연세대학교</label>
+                <div>
+                    <table>
+                        <tr>
+                            <td rowspan="3"><img src="/univ_logo/yonsei.jpg"></td>
+                            <td>학기당 수업료</td>
+                            <td>6,831,000원</td>
+                        </tr>
+                        <tr>
+                            <td>장학금</td>
+                            <td>1학기 등록금 지원(입학금 제외)</td>
+                        </tr>
+                        <tr>
+                            <td>제출 가능 공인 영어 성적</td>
+                            <td>TOEIC, TOEFL, TEPS</td>
+                        </tr>
+                        <tr>
+                            <td>소재지 | 서울</td>
+                            <td>연구실(교수진) 목록</td>
+                            <td><button onmouseover="this.style.backgroundColor='white'
+                                                    this.style.color='black'"
+                                        onmouseout="this.style.backgroundColor='#3368e4'
+                                                    this.style.color='white'"
+                                        onclick="link_lab('yonsei')">바로가기</button></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <button onmouseover="this.style.backgroundColor='white'
+                                                    this.style.color='black'"
+                                        onmouseout="this.style.backgroundColor='#3368e4'
+                                                    this.style.color='white'"
+                                        onclick="link_admission('yonsei')">입학처 가기</button>
+                                <button onmouseover="this.style.backgroundColor='white'
+                                                    this.style.color='black'"
+                                        onmouseout="this.style.backgroundColor='#3368e4'
+                                                    this.style.color='white'">
+                                        <a href="/download/yonsei.pdf" download="연세대학교 대학원 모집요강">모집요강 다운로드</a></button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <input type="radio" name="univ_list" id="chungang">
+                <label for="chungang">중앙대학교</label>
+                <div>
+                    <table>
+                        <tr>
+                            <td rowspan="3"><img src="/univ_logo/chungang.png"></td>
+                            <td>학기당 수업료</td>
+                            <td>6,938,000원</td>
+                        </tr>
+                        <tr>
+                            <td>장학금</td>
+                            <td>CAU GRS 장학금 (대상자 전액 지원)</td>
+                        </tr>
+                        <tr>
+                            <td>제출 가능 공인 영어 성적</td>
+                            <td>X</td>
+                        </tr>
+                        <tr>
+                            <td>소재지 | 서울</td>
+                            <td>연구실(교수진) 목록</td>
+                            <td><button onmouseover="this.style.backgroundColor='white'
+                                                    this.style.color='black'"
+                                        onmouseout="this.style.backgroundColor='#3368e4'
+                                                    this.style.color='white'"
+                                        onclick="link_lab('chungang')">바로가기</button></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <button onmouseover="this.style.backgroundColor='white'
+                                                    this.style.color='black'"
+                                        onmouseout="this.style.backgroundColor='#3368e4'
+                                                    this.style.color='white'"
+                                        onclick="link_admission('chungang')">입학처 가기</button>
+                                <button onmouseover="this.style.backgroundColor='white'
+                                                    this.style.color='black'"
+                                        onmouseout="this.style.backgroundColor='#3368e4'
+                                                    this.style.color='white'">
+                                        <a href="/download/chungang.pdf" download="중앙대학교 대학원 모집요강">모집요강 다운로드</a></button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <input type="radio" name="univ_list" id="postech">
+                <label for="postech">포항공과대학교(POSTECH)</label>
+                <div>
+                    <table>
+                        <tr>
+                            <td rowspan="3"><img src="/univ_logo/postech.jpg"></td>
+                            <td>학기당 수업료</td>
+                            <td>4,782,000원</td>
+                        </tr>
+                        <tr>
+                            <td>장학금</td>
+                            <td>석사 : 1,358,500원 / 박사 : 1,835,000원</td>
+                        </tr>
+                        <tr>
+                            <td>제출 가능 공인 영어 성적</td>
+                            <td>TOEIC, TOEFL, TEPS, IELTS</td>
+                        </tr>
+                        <tr>
+                            <td>소재지 | 포항</td>
+                            <td>연구실(교수진) 목록</td>
+                            <td><button onmouseover="this.style.backgroundColor='white'
+                                                    this.style.color='black'"
+                                        onmouseout="this.style.backgroundColor='#3368e4'
+                                                    this.style.color='white'"
+                                        onclick="link_lab('postech')">바로가기</button></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <button onmouseover="this.style.backgroundColor='white'
+                                                    this.style.color='black'"
+                                        onmouseout="this.style.backgroundColor='#3368e4'
+                                                    this.style.color='white'"
+                                        onclick="link_admission('postech')">입학처 가기</button>
+                                <button onmouseover="this.style.backgroundColor='white'
+                                                    this.style.color='black'"
+                                        onmouseout="this.style.backgroundColor='#3368e4'
+                                                    this.style.color='white'">
+                                        <a href="/download/postech.pdf" download="포항공과대학교 대학원 모집요강">모집요강 다운로드</a></button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <input type="radio" name="univ_list" id="hanyang">
+                <label for="hanyang">한양대학교</label>
+                <div>
+                    <table>
+                        <tr>
+                            <td rowspan="3"><img src="/univ_logo/hanyang.png"></td>
+                            <td>학기당 수업료</td>
+                            <td>6,877,000원</td>
+                        </tr>
+                        <tr>
+                            <td>장학금</td>
+                            <td>석박사 : 수업료 100% 6회 지원 / 박사 : 수업료 100% 4회 지원</td>
+                        </tr>
+                        <tr>
+                            <td>제출 가능 공인 영어 성적</td>
+                            <td>입학처 문의 요망</td>
+                        </tr>
+                        <tr>
+                            <td>소재지 | 서울</td>
+                            <td>연구실(교수진) 목록</td>
+                            <td><button onmouseover="this.style.backgroundColor='white'
+                                                    this.style.color='black'"
+                                        onmouseout="this.style.backgroundColor='#3368e4'
+                                                    this.style.color='white'"
+                                        onclick="link_lab('hanyang')">바로가기</button></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <button onmouseover="this.style.backgroundColor='white'
+                                                    this.style.color='black'"
+                                        onmouseout="this.style.backgroundColor='#3368e4'
+                                                    this.style.color='white'"
+                                        onclick="link_admission('hanyang')">입학처 가기</button>
+                                <button onmouseover="this.style.backgroundColor='white'
+                                                    this.style.color='black'"
+                                        onmouseout="this.style.backgroundColor='#3368e4'
+                                                    this.style.color='white'">
+                                        <a href="/download/hanyang.pdf" download="한양대학교 대학원 모집요강">모집요강 다운로드</a></button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <input type="radio" name="univ_list" id="kaist">
+                <label for="kaist">KAIST</label>
+                <div>
+                    <table>
+                        <tr>
+                            <td rowspan="3"><img src="/univ_logo/kaist.gif"></td>
+                            <td>학기당 수업료</td>
+                            <td>750,000원</td>
+                        </tr>
+                        <tr>
+                            <td>장학금</td>
+                            <td>석사 : 수업료 전액 또는 일부 / 박사 : 수업료 전액 또는 일부</td>
+                        </tr>
+                        <tr>
+                            <td>제출 가능 공인 영어 성적</td>
+                            <td>TOEIC, TOEFL, TEPS, IELTS</td>
+                        </tr>
+                        <tr>
+                            <td>소재지 | 대전</td>
+                            <td>연구실(교수진) 목록</td>
+                            <td><button onmouseover="this.style.backgroundColor='white'
+                                                    this.style.color='black'"
+                                        onmouseout="this.style.backgroundColor='#3368e4'
+                                                    this.style.color='white'"
+                                        onclick="link_lab('kaist')">바로가기</button></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <button onmouseover="this.style.backgroundColor='white'
+                                                    this.style.color='black'"
+                                        onmouseout="this.style.backgroundColor='#3368e4'
+                                                    this.style.color='white'"
+                                        onclick="link_admission('kaist')">입학처 가기</button>
+                                <button onmouseover="this.style.backgroundColor='white'
+                                                    this.style.color='black'"
+                                        onmouseout="this.style.backgroundColor='#3368e4'
+                                                    this.style.color='white'">
+                                        <a href="/download/kaist.pdf" download="KAIST 대학원 모집요강">모집요강 다운로드</a></button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <input type="radio" name="univ_list" id="gist">
+                <label for="gist">GIST</label>
+                <div>
+                    <table>
+                        <tr>
+                            <td rowspan="3"><img src="/univ_logo/gist.jpg"></td>
+                            <td>학기당 수업료</td>
+                            <td>3,415,000원</td>
+                        </tr>
+                        <tr>
+                            <td>장학금</td>
+                            <td>석사 : 등록금 전액 / 박사 : 등록금 전액</td>
+                        </tr>
+                        <tr>
+                            <td>제출 가능 공인 영어 성적</td>
+                            <td>TOEIC, TOEFL, TEPS, IELTS</td>
+                        </tr>
+                        <tr>
+                            <td>소재지 | 광주</td>
+                            <td>연구실(교수진) 목록</td>
+                            <td><button onmouseover="this.style.backgroundColor='white'
+                                                    this.style.color='black'"
+                                        onmouseout="this.style.backgroundColor='#3368e4'
+                                                    this.style.color='white'"
+                                        onclick="link_lab('gist')">바로가기</button></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <button onmouseover="this.style.backgroundColor='white'
+                                                    this.style.color='black'"
+                                        onmouseout="this.style.backgroundColor='#3368e4'
+                                                    this.style.color='white'"
+                                        onclick="link_admission('gist')">입학처 가기</button>
+                                <button onmouseover="this.style.backgroundColor='white'
+                                                    this.style.color='black'"
+                                        onmouseout="this.style.backgroundColor='#3368e4'
+                                                    this.style.color='white'">
+                                        <a href="/download/gist.pdf" download="GIST 대학원 모집요강">모집요강 다운로드</a></button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <input type="radio" name="univ_list" id="unist">
+                <label for="unist">UNIST</label>
+                <div>
+                    <table>
+                        <tr>
+                            <td rowspan="3"><img src="/univ_logo/unist.png"></td>
+                            <td>학기당 수업료</td>
+                            <td>3,840,000원</td>
+                        </tr>
+                        <tr>
+                            <td>장학금</td>
+                            <td>석사 : 등록금 전액 / 박사 : 등록금 전액</td>
+                        </tr>
+                        <tr>
+                            <td>제출 가능 공인 영어 성적</td>
+                            <td>TOEIC, TOEFL, TEPS, IELTS, G-TELP, OPIC</td>
+                        </tr>
+                        <tr>
+                            <td>소재지 | 울산</td>
+                            <td>연구실(교수진) 목록</td>
+                            <td><button onmouseover="this.style.backgroundColor='white'
+                                                    this.style.color='black'"
+                                        onmouseout="this.style.backgroundColor='#3368e4'
+                                                    this.style.color='white'"
+                                        onclick="link_lab('unist')">바로가기</button></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <button onmouseover="this.style.backgroundColor='white'
+                                                    this.style.color='black'"
+                                        onmouseout="this.style.backgroundColor='#3368e4'
+                                                    this.style.color='white'"
+                                        onclick="link_admission('unist')">입학처 가기</button>
+                                <button onmouseover="this.style.backgroundColor='white'
+                                                    this.style.color='black'"
+                                        onmouseout="this.style.backgroundColor='#3368e4'
+                                                    this.style.color='white'">
+                                        <a href="/download/unist.pdf" download="UNIST 대학원 모집요강">모집요강 다운로드</a></button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div id="caution">
+                <p>
+                    ※ 모집요강 관련 안내사항<br>
+                    GIST, UNIST : 2023년 모집요강 다운로드 가능<br>
+                    그 외 : 2022년 후기 모집요강 다운로드 가능
+                </p>
+            </div>
+        </section>
+        <aside></aside>
+        <footer></footer>
+
+        <!--메모 버튼 클릭 시 메모장 노출(memo.css)-->
+        <input type="checkbox" id="memoicon">
+        <label id="memoicon_back">
+            <label for="memoicon">
+                <span></span>
+                <span></span>
+                <img src="/icons/edit_(32x32).png">
+            </label>
+        </label>
+        <div class="memo">
+            <div class="memo_back">
+                <canvas id="memo" width="380px" height="380px"></canvas>
+            </div>
+            <!--아이콘 출처 표시-->
+            <div id="memo">
+                <a href="https://www.flaticon.com/free-icons/edit" title="edit icons">Edit icons created by Kiranshastry - Flaticon</a>
+            </div>
+        </div>
+    </body>
+</html>

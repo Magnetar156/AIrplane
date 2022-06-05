@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>AIrplane - AI 대학원 간단 탐색기</title>
+        <link rel="stylesheet" href="/css/style.css">
+        <script src="/js/canvas.js"></script>
+        <script src="/js/select_details.js"></script>
+    </head>
+    <body onload="init()">
+        <!--좌측 메뉴바(menu.css)-->
+        <input type="checkbox" id="menuicon">
+        <label for="menuicon">
+            <span></span>
+            <span></span>
+            <span></span>
+            <p>MENU</p>
+        </label>
+        <div class="sidebar">
+            <div id="menu_box">
+                <a href="main.html">
+                    <div>
+                        HOME
+                    </div>
+                </a>
+            </div>
+            <div id="menu_box_selected">
+                AI 세부 분야
+            </div>
+            <div id="menu_box">
+                <a href="graduate_school.html">
+                    <div>
+                        AI 대학원
+                    </div>
+                </a>
+            </div>
+        </div>
+        <label for="menuicon" id="content_area"></label>
+
+        <!--페이지 구역 나누기(style.css)-->
+        <header id="sub">
+            <div>
+                <h1>AI 세부 분야</h1>
+            </div>
+        </header>
+        <nav></nav>
+        <!--메인 컨텐츠(details.css)-->
+        <section>
+            <!--컨텐츠 버튼 클릭 시 해당 정보 출력(select_details.js)-->
+            <div onclick="selected_value()">
+                <label id="details">
+                    <input type="radio" name="details" value="machine_learning" id="details" checked>
+                    <div>머신러닝</div>
+                </label>
+                <label id="details" onclick="selected_value()">
+                    <input type="radio" name="details" value="natural_lang_process" id="details">
+                    <div>자연어처리</div>
+                </label>
+                <label id="details" onclick="selected_value()">
+                    <input type="radio" name="details" value="computer_vision" id="details">
+                    <div>컴퓨터비전</div>
+                </label>
+            </div>
+
+            <div id="details_text">
+                <div id="machine_learning">
+                    <div>
+                        <p> 머신러닝은 인간의 사고를 효율적인 계산 및 처리를 바라보는 관점에서부터 접근하여 
+                            모방해 컴퓨터를 인간처럼 학습시켜 스스로 규칙을 형성할 수 있도록 하는 기술이다.<br>
+                            인공지능 뿐만 아니라 검색보완, 맞춤형 광고, 판매 관리, 기계 조작, 인력 개편 등 
+                            광범위하게 사용되고 있다.<br>
+                        </p>
+                    </div>
+                    <div>
+                        <ul id="detail_list">
+                            <h4>머신러닝을 공부하기 전 필요한 과목</h4>
+                            <li>통계학</li>
+                            <li>선형대수학</li>
+                            <li>수치해석</li>
+                            <li>이산수학</li>
+                            <li>미적분학</li>
+                            <li>병렬 및 분산 시스템</li>
+                            <li>수리통계학</li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="natural_lang_process">
+                    <div>
+                        <p> 자연어를 컴퓨어로 해석하고, 의미를 분석하여 이해하고, 자동으로 생성하는 것 등에 관련된 분야로,
+                            간단하게 말해 컴퓨터가 인간의 언어를 알아들을 수 있게 만드는 기술이다.<br>
+                            아직 컴퓨터가 자연어를 사람처럼 완벽하게 이해하지는 못하지만 확률 및 통계를 이용해 대량의 정보를 처리하는 기술은 
+                            많이 발전한 상태이다.
+                        </p>
+                    </div>
+                    <div>
+                        <ul id="detail_list">
+                            <h4>하위 분야</h4>
+                            <li>
+                                정보 검색 : 수많은 문서 중에서 유저가 원하는 문서를 빠른 속도로 찾아내는 과정을 말하며 
+                                윈도우 내장 검색 기능부터 온라인 검색엔진까지 전부 아우르는 기술
+                            </li>
+                            <li>
+                                정보 추출 : 비정형의 문서로부터 정규화된 정보를 뽑아내는 기술
+                            </li>
+                            <li>
+                                음성 인식 : 컴퓨터가 인간의 음성 언어를 이해하게 만드는 기술로 Siri나 빅스비 등에서 사용됨
+                            </li>
+                            <li>
+                                기계 번역 : 하나의 언어로 작성된 글을 또 다른 언어로 자동으로 바꾸는 기술
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="computer_vision">
+                    <div>
+                        <p> 컴퓨터를 활용하여, 정지 영상 또는 동영상으로부터 의미 있는 정보를 추출하여,
+                            사람이 눈으로 사물을 보고 인지하는 과정을 컴퓨터가 할 수 있도록 하는 기술이다.
+                        </p>
+                    </div>
+                    <div>
+                        <ul id="detail_list">
+                            <h4>적용 분야</h4>
+                            <li>
+                                영상 화질 개선 : 흔히 말하는 업스케일링 기술에 해당함
+                            </li>
+                            <li>
+                                얼굴 및 물체 인식 : 스마트폰으로 이용 가능한 문서 스캔 기능, 얼굴을 인식해 다양한 효과를 적용해주는 셀카 서비스, 
+                                명함을 인식해 명함에 적힌 연락처를 관리해주는 서비스 등이 해당함
+                            </li>
+                            <li>
+                                모션트래킹 : 영상에서 특정 피사체의 움직임을 추적하는 기술
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <aside></aside>
+        <footer></footer>
+
+        <!--메모 버튼 클릭 시 메모장 노출(memo.css)-->
+        <input type="checkbox" id="memoicon">
+        <label id="memoicon_back">
+            <label for="memoicon">
+                <span></span>
+                <span></span>
+                <img src="/icons/edit_(32x32).png">
+            </label>
+        </label>
+        <div class="memo">
+            <div class="memo_back">
+                <canvas id="memo" width="380px" height="380px"></canvas>
+            </div>
+            <!--아이콘 출처 표시-->
+            <div id="memo">
+                <a href="https://www.flaticon.com/free-icons/edit" title="edit icons">Edit icons created by Kiranshastry - Flaticon</a>
+            </div>
+        </div>
+    </body>
+</html>

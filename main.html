@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>AIrplane - AI 대학원 간단 탐색기</title>
+        <link rel="stylesheet" href="/css/style.css">
+        <script src="/js/canvas.js"></script>
+    </head>
+    <body onload="init()">
+        <div id="main">
+            <!--좌측 메뉴바(menu.css)-->
+            <input type="checkbox" id="menuicon">
+            <label for="menuicon">
+                <span></span>
+                <span></span>
+                <span></span>
+                <p>MENU</p>
+            </label>
+            <div class="sidebar">
+                <div id="menu_box_selected">
+                    HOME
+                </div>
+                <div id="menu_box">
+                    <a href="details.html">
+                        <div>
+                            AI 세부 분야
+                        </div>
+                    </a>
+                </div>
+                <div id="menu_box">
+                    <a href="graduate_school.html">
+                        <div>
+                            AI 대학원
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <label for="menuicon" id="content_area"></label>
+
+            <!--페이지 구역 나누기(style.css)-->
+            <header></header>
+            <nav></nav>
+            <section>
+                <div id="front">
+                    <p id="title">AIrplane</p>
+                    <p id="title_sub">AI대학원 정보 간단 탐색기</p>
+                </div>
+            </section>
+            <aside></aside>
+            <footer>
+                <div id="footer">
+                    
+                </div>
+            </footer>
+            
+            <!--메모 버튼 클릭 시 메모장 노출(memo.css)-->
+            <input type="checkbox" id="memoicon">
+            <label id="memoicon_back">
+                <label for="memoicon">
+                    <span></span>
+                    <span></span>
+                    <img src="/icons/edit_(32x32).png">
+                </label>
+            </label>
+            <div class="memo">
+                <div class="memo_back">
+                    <canvas id="memo" width="380px" height="380px"></canvas>
+                </div>
+                <!--아이콘 출처 표시-->
+                <div id="memo">
+                    <a href="https://www.flaticon.com/free-icons/edit" title="edit icons">Edit icons created by Kiranshastry - Flaticon</a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

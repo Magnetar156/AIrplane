@@ -1,0 +1,119 @@
+/* checkbox 숨김처리 */
+input#memoicon {
+    display: none;
+}
+/* 메모 아이콘 기본 설정 */
+label#memoicon_back {
+    display: block;
+    margin: 15px;
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    background: #1b4dc2;
+    border-radius: 100%;
+    opacity: 0.8;
+}
+input#memoicon + label {
+    display: block;
+    margin: 15px;
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    background: #1b4dc2;
+    border-radius: 100%;
+    opacity: 0.8;
+}
+input#memoicon + label img {
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+    cursor: pointer;
+    transition: opacity .35s;
+    opacity: 1;
+}
+input#memoicon + label span {
+    display: block;
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    background: black;
+    opacity: 0;
+    transition: opacity .25s;
+    transition-delay: .1s;
+    left: 5px;
+}
+input#memoicon + label span:nth-child(1) {
+    top: 5px;
+    transform: translateY(-50%) rotate(45deg);
+
+}
+input#memoicon + label span:nth-child(2) {
+    bottom: 5px;
+    transform: translateY(50%) rotate(-45deg);
+}
+
+/* 메모 아이콘 클릭 시 동작 설정 */
+input#memoicon:checked + label {
+    z-index: 2;
+}
+input#memoicon:checked + label img {
+    opacity: 0;
+}
+input#memoicon:checked + label span:nth-child(1) {
+    top: 50%;
+    width: 40px;
+    height: 3px;
+    opacity: 1;
+    background: white;
+}
+input#memoicon:checked + label span:nth-child(2) {
+    bottom: 50%;
+    width: 40px;
+    height: 3px;
+    opacity: 1;
+    background: white;
+}
+
+/* 메모장 설정 */
+div.memo {
+    display: block;
+    width: 500px;
+    height: 500px;
+    background: #1b4dc2;
+    opacity: 0.9;
+    position: fixed;
+    bottom: 0;
+    right: -500px;
+    z-index: 1;
+    transition: right .35s;
+}
+
+/* 메모 아이콘 클릭 시 메모장 출력 설정 */
+input#memoicon:checked + label + div {
+    right: 0;
+}
+
+/* 기존 캔버스 설정 */
+/*  특정 브라우저 내장 캡처 기능 사용 시
+    캔버스 배경 캡처 안되는 문제 발생   */
+/*
+canvas {
+    background-color: aliceblue;
+    margin-top: 25px;
+    margin-left: 25px;
+}
+*/
+/* 캔버스 캡처 시 배경화면 미 출력 해결용 배경 */
+div.memo_back {
+    width: 380px;
+    height: 380px;
+    margin-top: 25px;
+    margin-left: 25px;
+    padding: 0;
+    background: aliceblue;
+    opacity: 0.8;
+}

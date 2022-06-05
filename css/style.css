@@ -1,0 +1,99 @@
+@import url(menu.css);
+@import url(memo.css);
+@import url(details.css);
+@import url(univ_list.css);
+
+/* 적용 글꼴 연결 */
+@font-face {
+    font-family: 'JejuGothic';
+    src: url('/fonts/JejuGothic.ttf');
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background-color: #ffffff;
+    font-family: 'JejuGothic';
+}
+a {
+    text-decoration: none;
+}
+a:visited {
+    color: white;
+}
+
+header {
+    width: 100%;
+    height: 25%;
+}
+header div {
+    padding-top: 5%;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+nav {
+    width: 25%;
+    height: 50%;
+    float: left;
+}
+section {
+    width: 50%;
+    height: 50%;
+    float: left;
+}
+aside {
+    width: 25%;
+    height: 50%;
+    float: left;
+}
+footer {
+    width: 100%;
+    height: 25%;
+    clear: both;
+}
+
+/* 메인화면 설정 */
+div#main {
+    width: 100%;
+    height: 100%;
+    background-image: url(/background-images/main_bg.jpg);
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+div#front {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+}
+div#front p#title {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+div#front p#title_sub {
+    margin-top: 0;
+}
+
+div#memo {
+    position: absolute;
+    left: 24%;
+    bottom: 5px;
+}
+div#memo a {
+    font-size: 5px;
+    color: gray;
+}
+
+/* 메인 화면 이외 페이지 배경 설정 */
+header#sub {
+    background-image: url(/background-images/header_bg.jpg);
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    margin-bottom: 20px;
+}

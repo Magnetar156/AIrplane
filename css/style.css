@@ -6,7 +6,7 @@
 /* 적용 글꼴 연결 */
 @font-face {
     font-family: 'JejuGothic';
-    src: url('/fonts/JejuGothic.ttf');
+    src: url('../fonts/JejuGothic.ttf');
 }
 
 html, body {
